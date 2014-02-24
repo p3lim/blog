@@ -1,0 +1,30 @@
+{% extends 'layout.twig' %}
+
+{% block navHome %}
+	<strong>{{ parent() }}</strong>
+{% endblock %}
+{% block styles %}
+	{{ parent() }}
+	<link rel='stylesheet' href='/assets/css/article.css'/>
+	<link rel='stylesheet' href='/assets/css/index.css'/>
+{% endblock %}
+{% block scripts %}
+	{{ parent() }}
+	<script src='/assets/js/index.js'></script>
+{% endblock %}
+{% block content %}
+	{% for post in posts %}
+		<article>
+			<header>
+				<p class='meta date'><b>{{ post.time|date('M j') }}</b> {{ post.time|date('Y') }}</p>
+				<h1>
+					<a class='title' href='/post/{{ post.id }}'>{{ post.title }}</a>
+				</h1>
+			</header>
+			{{ post.content|excerpt|raw }}
+			{% if sections(post.content) > 1 %}
+				<a class='extend' href='/post/{{ post.id }}'>Read more</a>
+			{% endif %}
+		</article>
+	{% endfor %}
+{% endblock %}

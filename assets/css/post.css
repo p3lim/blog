@@ -1,0 +1,57 @@
+#submit {
+	margin: 60px 0 0;
+}
+
+#submit textarea {
+	min-width: 500px;
+	max-width: 500px;
+	min-height: 60px;
+	float: top;
+	padding: 0;
+	margin: 0;
+}
+
+#submit input,
+#submit textarea {
+	border: 1px solid #CCC;
+	margin-top: 0;
+	padding: 8px;
+	font: inherit;
+	outline: none;
+}
+
+#submit input {
+	float: left;
+	margin-top: 2px;
+	margin-right: 3px;
+}
+
+#submit input[type=text],
+#submit input[type=email] {
+	width: 203px;
+	/*height: 20px;*/
+}
+
+#submit input[type=submit] {
+	width: 70px;
+	height: 38px;
+}
+
+#submit input:focus,
+#submit textarea:focus {
+	outline: none;
+}
+
+#submit input:required,
+#submit textarea:required {
+	box-shadow: none;
+}
+
+#controls a {
+	display: block;
+	background: black;
+	height: 16px;
+	width: 16px;
+	float: left;
+	margin-right: 5px;
+}

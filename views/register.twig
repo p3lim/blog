@@ -1,0 +1,20 @@
+{% extends 'layout.twig' %}
+{% import 'macros.twig' as macros %}
+{% block styles %}
+	{{ parent() }}
+	<link rel='stylesheet' href='/assets/css/authenticate.css'/>
+{% endblock %}
+{% block content %}
+	<article>
+		<header>
+			<h1>Register</h1>
+		</header>
+		<section>
+			<form method='post' action='/register'>
+				{{ macros.input('name', 'text', 'Username', 25, 'off') }}
+				{{ macros.input('password', 'password', 'Password', 60, 'off') }}
+				{{ macros.input(null, 'submit', null, 'Register') }}
+			</form>
+		</section>
+	</article>
+{% endblock %}

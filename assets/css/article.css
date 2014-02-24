@@ -1,0 +1,32 @@
+article {
+	font-family: 'Lato', sans-serif; 
+}
+
+article h1 {
+	color: #111;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 36px;
+}
+
+article h1 a {
+	color: #111;
+}
+
+article h1 a:hover {
+	color: #777;
+}
+
+article img {
+	border: 1px solid #F4F4F4;
+	padding: 3px;
+}
+
+article section {
+	margin: 0 0 30px;
+}
+
+article p {
+	line-height: 26px;
+	margin: 0;
+}

@@ -1,0 +1,13 @@
+{% extends 'layout.twig' %}
+
+{% block styles %}
+	{{ parent() }}
+	<link rel='stylesheet' href='/assets/css/404.css'/>
+{% endblock %}
+{% block content %}
+	<article>
+		<h1>Something went wrong!</h1>
+		<p>The page you tried to browse could not be found.</p>
+		<p>Click <a href='/'>here</a> to go back to the homepage</p>
+	</article>
+{% endblock %}

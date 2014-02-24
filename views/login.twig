@@ -1,0 +1,21 @@
+{% extends 'layout.twig' %}
+{% import 'macros.twig' as macros %}
+
+{% block styles %}
+	{{ parent() }}
+	<link rel='stylesheet' href='/assets/css/authenticate.css'/>
+{% endblock %}
+{% block content %}
+	<article>
+		<header>
+			<h1>Login</h1>
+		</header>
+		<section>
+			<form method='post' action='/login'>
+				{{ macros.input('username', 'text', 'Username', 25) }}
+				{{ macros.input('password', 'password', 'Password', 60) }}
+				{{ macros.input(null, 'submit', null, 'Login') }}
+			</form>
+		</section>
+	</article>
+{% endblock %}

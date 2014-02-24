@@ -1,0 +1,91 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,700,300italic,700italic);
+
+html, body {
+	height: 100%;
+}
+
+body, ul {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	height: 52px;
+	border-bottom: solid 1px black;
+	padding: 5px;
+	font-family: 'Lato', sans-serif;
+}
+
+header input {
+	border: 1px solid #CCC;
+	margin-top: 0;
+	padding: 8px;
+	font: inherit;
+	outline: none;
+	margin-top: 2px;
+}
+
+header input[type=submit] {
+	position: absolute;
+	top: 3px;
+	height: 52px;
+	width: 90px;
+	background: #F0F0F0;
+}
+
+header .publish {
+	right: 5px;
+}
+
+header .publish:hover {
+	background-color: #E2FFE0;
+}
+
+header .discard {
+	right: 102px;
+}
+
+header .discard:hover {
+	background-color: #FFE0E0;
+}
+
+header .publish:active,
+header .discard:active {
+	border: 1px solid #000;
+}
+
+header .title {
+	position: absolute;
+	left: 3px;
+	top: 3px;
+	right: 200px;
+	font-weight: 700;
+	font-size: 28px;
+}
+
+header .title:focus {
+	outline: none;
+	border: 1px solid #000;
+}
+
+article {
+	width: 700px;
+	position: absolute;
+	left: 0;
+	top: 63px;
+	bottom: 0;
+	overflow-y: auto;
+	padding: 5px;
+}
+
+article:focus {
+	outline: none;
+}
+
+#editor {
+	position: absolute;
+	top: 63px;
+	right: 0;
+	bottom: 0;
+	left: 712px;
+}

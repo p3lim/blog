@@ -1,0 +1,53 @@
+{% extends 'layout.twig' %}
+{% import 'macros.twig' as macros %}
+
+{% block title %}p3lim - {{ post.title }}{% endblock %}
+{% block styles %}
+	{{ parent() }}
+	<link rel='stylesheet' href='/assets/css/article.css'/>
+	<link rel='stylesheet' href='/assets/css/post.css'/>
+{% endblock %}
+{% block scripts %}
+	{{ parent() }}
+	<script src='/assets/js/post.js'></script>
+{% endblock %}
+{% block content %}
+	<article>
+		<header>
+			<p class='meta date'><b>{{ post.time|date('M j') }}</b> {{ post.time|date('Y') }}</p>
+			<h1>{{ post.title }}</h1>
+		</header>
+		{{ post.content|raw }}
+		<section id='comments'>
+			{% for comment in comments %}
+				<div class='comment'>
+					<header>
+						<h3>{{ comment.name }}</h3>
+						<img class='avatar' src='http://gravatar.com/avatar/{{ comment.email }}?d=mm'/>
+						{# add time too #}
+						{% if auth %}
+							<div id='controls'>
+								<a id='delete' data-id='{{ comment.id }}' title='Delete comment'></a>
+								<a id='ban' data-id='{{ comment.id }}' title='Ban user'></a>
+							</div>
+						{% endif %}
+					</header>
+					<section>{{ comment.content }}</section>
+				</div>
+			{% endfor %}
+		</section>
+		<section id='submit'>
+			<form name='comment' method='post' action='/comment'>
+				{{ macros.textarea('content', 'Post a comment', data.content) }}
+				{{ macros.input('name', 'text', 'Name', 25) }}
+				{{ macros.input('email', 'email', 'Mail (will not be published)', 50) }}
+				{{ macros.input('id', 'hidden', null, post.id) }}
+				{{ macros.input(null, 'submit', null, 'Submit') }}
+			</form>
+		</section>
+	</article>
+{% endblock %}
+{% block buttons %}
+	<li><a id='delete' title='Delete post'></a></li>
+	<li><a id='edit' title='Edit post'></a></li>
+{% endblock %}

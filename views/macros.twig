@@ -1,0 +1,10 @@
+{% macro input(name, type, placeholder, value, autofill) %}
+	{% if placeholder %}
+		<input name='{{ name }}' type='{{ type }}' placeholder='{{ placeholder }}' maxlength='{{ value }}' autocomplete='{{ autofill }}' required/>
+	{% else %}
+		<input name='{{ name }}' type='{{ type }}' value='{{ value }}' required/>
+	{% endif %}
+{% endmacro %}
+{% macro textarea(name, placeholder, contents) %}
+	<textarea name='{{ name }}' placeholder='{{ placeholder }}' maxlength='255' lang='en' spellcheck required>{{ contents|default('') }}</textarea>
+{% endmacro %}

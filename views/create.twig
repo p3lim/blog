@@ -1,0 +1,21 @@
+{% extends 'layout.twig' %}
+
+{% block styles %}
+	<link rel='stylesheet' href='/assets/css/article.css'/>
+	<link rel='stylesheet' href='/assets/css/create.css'/>
+{% endblock %}
+{% block scripts %}
+	{{ parent() }}
+	<script src='/assets/js/libs/ace.min.js' charset='utf-8'></script>
+	<script src='/assets/js/create.js'></script>
+{% endblock %}
+{% block body %}
+	<header>
+		<input class='title' type='text' value='{{ post.title }}' spellcheck='true' placeholder='Title'/>
+		<input class='publish' type='submit' value='Publish' data-id='{{ post.id }}'/>
+		<input class='discard' type='submit' value='Discard'/>
+		{# add a dropdown listing closed edits, and add option to delete them aswell #}
+	</header>
+	<article>{{ post.content|raw }}</article>
+	<div id='editor'></div>
+{% endblock %}

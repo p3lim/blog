@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>{% block title %}p3lim{% endblock %}</title>
+		<link rel='icon' href='/assets/image/favicon.ico'/>
+		{% block styles %}
+			<link rel='alternate' href='/feed' type='application/rss+xml'/>
+			<link rel='stylesheet' href='/assets/css/layout.css'/>
+		{% endblock %}
+		{% block scripts %}
+			<script src='/assets/js/libs/jquery.min.js'></script>
+			{% if auth %}
+				<script src='/assets/js/buttons.js'></script>
+			{% endif %}
+		{% endblock %}
+	</head>
+	<body>
+		{% if flash.error %}
+			<div id='errors'>
+				<h4>{{ flash.error }}</h4>
+			</div>
+		{% endif %}
+		{% if flash.message %}
+			<div id='messages'>
+				<h4>{{ flash.message }}</h4>
+			</div>
+		{% endif %}
+		{% block body %}
+			<nav>
+				<ul>
+					<li><a href='/'>{% block navHome %}p3lim{% endblock %}</a></li>
+					{#<li><a href='/about'>{% block navAbout %}about{% endblock %}</a></li>#}
+				</ul>
+			</nav>
+			{% block content %}{% endblock %}
+			<footer>
+				<p>Copyright &copy; 2013 Adrian L Lange. All Rights Reserved.</p>
+			</footer>
+			<div id='buttons'>
+				<ul>
+					{% if auth %}
+						{% block buttons %}{% endblock %}
+						<li><a id='create' href='/create' title='New post'></a></li>
+						<li><a id='logout' href='/logout' title='Log out'></a></li>
+					{% else %}
+						<li><a id='login' href='/login' title='Log in'></a></li>
+					{% endif %}
+				</ul>
+			</div>
+		{% endblock %}
+	</body>
+</html>
